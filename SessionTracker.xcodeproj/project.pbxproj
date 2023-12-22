@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A74E534A2B33FC6B00914B63 /* AddSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E53492B33FC6B00914B63 /* AddSessionView.swift */; };
+		A74E534C2B34087200914B63 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E534B2B34087200914B63 /* CategoryView.swift */; };
+		A74E534F2B35297100914B63 /* SessionOpenCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E534E2B35297100914B63 /* SessionOpenCardView.swift */; };
+		A74E53522B3614E100914B63 /* MCEmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = A74E53512B3614E100914B63 /* MCEmojiPicker */; };
 		A76A155D2B33988200E37D54 /* TintColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76A155C2B33988200E37D54 /* TintColor.swift */; };
 		A76A15602B339AA800E37D54 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76A155F2B339AA800E37D54 /* Constants.swift */; };
+		A76A15622B33DCDD00E37D54 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76A15612B33DCDD00E37D54 /* HomeView.swift */; };
+		A76A15652B33DD4B00E37D54 /* EditCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76A15642B33DD4B00E37D54 /* EditCategoryView.swift */; };
+		A76A15672B33E71500E37D54 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76A15662B33E71500E37D54 /* CategoryList.swift */; };
 		A79D4AF92B3264370086F0D6 /* SessionTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D4AF82B3264370086F0D6 /* SessionTrackerApp.swift */; };
 		A79D4AFB2B3264370086F0D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D4AFA2B3264370086F0D6 /* ContentView.swift */; };
 		A79D4AFD2B3264380086F0D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A79D4AFC2B3264380086F0D6 /* Assets.xcassets */; };
@@ -18,8 +25,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A74E53492B33FC6B00914B63 /* AddSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSessionView.swift; sourceTree = "<group>"; };
+		A74E534B2B34087200914B63 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		A74E534E2B35297100914B63 /* SessionOpenCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionOpenCardView.swift; sourceTree = "<group>"; };
 		A76A155C2B33988200E37D54 /* TintColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TintColor.swift; sourceTree = "<group>"; };
 		A76A155F2B339AA800E37D54 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A76A15612B33DCDD00E37D54 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A76A15642B33DD4B00E37D54 /* EditCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryView.swift; sourceTree = "<group>"; };
+		A76A15662B33E71500E37D54 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		A79D4AF52B3264370086F0D6 /* SessionTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SessionTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79D4AF82B3264370086F0D6 /* SessionTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTrackerApp.swift; sourceTree = "<group>"; };
 		A79D4AFA2B3264370086F0D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,18 +47,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A74E53522B3614E100914B63 /* MCEmojiPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A74E534D2B35294600914B63 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A74E534E2B35297100914B63 /* SessionOpenCardView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		A76A155E2B339A9800E37D54 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				A76A155F2B339AA800E37D54 /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A76A15632B33DD0000E37D54 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A79D4AFA2B3264370086F0D6 /* ContentView.swift */,
+				A76A15612B33DCDD00E37D54 /* HomeView.swift */,
+				A76A15642B33DD4B00E37D54 /* EditCategoryView.swift */,
+				A76A15662B33E71500E37D54 /* CategoryList.swift */,
+				A74E53492B33FC6B00914B63 /* AddSessionView.swift */,
+				A74E534B2B34087200914B63 /* CategoryView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A79D4AEC2B3264370086F0D6 = {
@@ -67,10 +102,11 @@
 		A79D4AF72B3264370086F0D6 /* SessionTracker */ = {
 			isa = PBXGroup;
 			children = (
-				A76A155E2B339A9800E37D54 /* Helpers */,
 				A79D4B062B3264F50086F0D6 /* Model */,
+				A74E534D2B35294600914B63 /* Components */,
+				A76A15632B33DD0000E37D54 /* Views */,
+				A76A155E2B339A9800E37D54 /* Helpers */,
 				A79D4AF82B3264370086F0D6 /* SessionTrackerApp.swift */,
-				A79D4AFA2B3264370086F0D6 /* ContentView.swift */,
 				A79D4AFC2B3264380086F0D6 /* Assets.xcassets */,
 				A79D4AFE2B3264380086F0D6 /* Preview Content */,
 			);
@@ -111,6 +147,9 @@
 			dependencies = (
 			);
 			name = SessionTracker;
+			packageProductDependencies = (
+				A74E53512B3614E100914B63 /* MCEmojiPicker */,
+			);
 			productName = SessionTracker;
 			productReference = A79D4AF52B3264370086F0D6 /* SessionTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -139,6 +178,9 @@
 				Base,
 			);
 			mainGroup = A79D4AEC2B3264370086F0D6;
+			packageReferences = (
+				A74E53502B3614E100914B63 /* XCRemoteSwiftPackageReference "MCEmojiPicker" */,
+			);
 			productRefGroup = A79D4AF62B3264370086F0D6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -166,11 +208,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A79D4B0A2B3265440086F0D6 /* Session.swift in Sources */,
+				A76A15622B33DCDD00E37D54 /* HomeView.swift in Sources */,
+				A76A15652B33DD4B00E37D54 /* EditCategoryView.swift in Sources */,
+				A74E534A2B33FC6B00914B63 /* AddSessionView.swift in Sources */,
 				A79D4AFB2B3264370086F0D6 /* ContentView.swift in Sources */,
+				A74E534C2B34087200914B63 /* CategoryView.swift in Sources */,
 				A79D4AF92B3264370086F0D6 /* SessionTrackerApp.swift in Sources */,
 				A76A155D2B33988200E37D54 /* TintColor.swift in Sources */,
 				A79D4B082B3265060086F0D6 /* Category.swift in Sources */,
 				A76A15602B339AA800E37D54 /* Constants.swift in Sources */,
+				A76A15672B33E71500E37D54 /* CategoryList.swift in Sources */,
+				A74E534F2B35297100914B63 /* SessionOpenCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +424,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A74E53502B3614E100914B63 /* XCRemoteSwiftPackageReference "MCEmojiPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/izyumkin/MCEmojiPicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A74E53512B3614E100914B63 /* MCEmojiPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A74E53502B3614E100914B63 /* XCRemoteSwiftPackageReference "MCEmojiPicker" */;
+			productName = MCEmojiPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A79D4AED2B3264370086F0D6 /* Project object */;
 }
