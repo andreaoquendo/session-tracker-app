@@ -6,18 +6,41 @@
 //
 
 import SwiftUI
+import SwiftData
 
-struct Category: Identifiable {
-    let id = UUID()
+@Model
+class Category {
+
     var name: String
+    var emoji: String
     var tintColor: String
     
-    init(name: String, tintColor: TintColor) {
+    @Relationship(deleteRule: .cascade)
+    var sessions = [Session]()
+    
+    init(name: String, emoji: String, tintColor: TintColor) {
         self.name = name
+        self.emoji = emoji
         self.tintColor = tintColor.color
     }
     
     var color: Color {
-        return tints.first(where: {$0.color == tintColor})?.value ?? appTint
+        return tintColors.first(where: {$0.color == tintColor})?.value ?? appTint
     }
+    
+    
+    @Transient var totalDuration: Float {    
+        var hours = 0
+        var minutes = 0
+        
+        for session in sessions {
+            hours += session.durationHour
+            minutes += session.durationMinutes
+        }
+        
+        let total = Float(hours) + Float(minutes)/60
+        
+        return total
+    }
+
 }

@@ -7,14 +7,20 @@
 
 import SwiftUI
 
-struct TintColor: Identifiable {
+struct TintColor: Identifiable, Equatable {
     let id: UUID = .init()
     var color: String
     var value: Color
 }
 
-var tints: [TintColor] = [
-    .init(color: "Yellow", value: .yellow)
+var tintColors: [TintColor] = [
+    .init(color: "Yellow", value: .yellow),
+    .init(color: "Orange", value: .orange),
+    .init(color: "Green", value: .green),
+    .init(color: "Blue", value: .blue),
+    .init(color: "Cyan", value: .cyan),
+    .init(color: "Purple", value: .purple),
+    .init(color: "Black", value: .black)
 ]
 
 

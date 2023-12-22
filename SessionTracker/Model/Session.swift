@@ -6,20 +6,37 @@
 //
 
 import SwiftUI
+import SwiftData
 
-struct Session: Identifiable {
-    let id: UUID = .init()
+@Model
+class Session {
     
-    var iniDate: Date
-    var endDate: Date
-    var duration: Float
-    var category: Category
+    var date: Date
     
-    init(iniDate: Date, endDate: Date, duration: Float, category: Category) {
-        self.iniDate = iniDate
-        self.endDate = endDate
-        self.duration = duration
-        self.category = category
+    var durationHour: Int
+    var durationMinutes: Int
+    
+    
+    var duration: Float {
+        if durationHour > 0 {
+            let value = Float(durationHour) + Float(durationMinutes)/60
+            return value
+        }
+        return Float(durationMinutes)
+    }
+    
+    var durationPrefix: String {
+        if durationHour > 0 {
+            return "hrs"
+        }
+        
+        return "min"
+    }
+    
+    init(date: Date, durationHour: Int, durationMinutes: Int) {
+        self.date = date
+        self.durationHour = durationHour
+        self.durationMinutes = durationMinutes
     }
     
 }
