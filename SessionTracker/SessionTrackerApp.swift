@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct SessionTrackerApp: App {
@@ -13,5 +14,6 @@ struct SessionTrackerApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: [Category.self, Session.self])
     }
 }
