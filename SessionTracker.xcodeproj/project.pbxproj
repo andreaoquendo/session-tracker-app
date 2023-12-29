@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A72ED76D2B3F164300507246 /* CategoryOpenCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72ED76C2B3F164300507246 /* CategoryOpenCardView.swift */; };
 		A74E534A2B33FC6B00914B63 /* AddSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E53492B33FC6B00914B63 /* AddSessionView.swift */; };
 		A74E534C2B34087200914B63 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E534B2B34087200914B63 /* CategoryView.swift */; };
 		A74E534F2B35297100914B63 /* SessionOpenCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E534E2B35297100914B63 /* SessionOpenCardView.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A72ED76C2B3F164300507246 /* CategoryOpenCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOpenCardView.swift; sourceTree = "<group>"; };
 		A74E53492B33FC6B00914B63 /* AddSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSessionView.swift; sourceTree = "<group>"; };
 		A74E534B2B34087200914B63 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		A74E534E2B35297100914B63 /* SessionOpenCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionOpenCardView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				A74E534E2B35297100914B63 /* SessionOpenCardView.swift */,
+				A72ED76C2B3F164300507246 /* CategoryOpenCardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				A74E534C2B34087200914B63 /* CategoryView.swift in Sources */,
 				A79D4AF92B3264370086F0D6 /* SessionTrackerApp.swift in Sources */,
 				A76A155D2B33988200E37D54 /* TintColor.swift in Sources */,
+				A72ED76D2B3F164300507246 /* CategoryOpenCardView.swift in Sources */,
 				A79D4B082B3265060086F0D6 /* Category.swift in Sources */,
 				A76A15602B339AA800E37D54 /* Constants.swift in Sources */,
 				A76A15672B33E71500E37D54 /* CategoryList.swift in Sources */,

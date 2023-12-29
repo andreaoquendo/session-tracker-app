@@ -42,5 +42,20 @@ class Category {
         
         return total
     }
+    
+    @Transient var totalDurationInMinutes: Int {
+        var total = 0
+        
+        for session in sessions {
+            total += session.durationHour*60
+            total += session.durationMinutes
+        }
+        
+        return total
+    }
+    
+    @Transient var sessionCount: Int {
+        return sessions.count
+    }
 
 }
