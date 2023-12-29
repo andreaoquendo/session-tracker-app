@@ -29,11 +29,9 @@ struct AddSessionView: View {
                 
                 Section(header: Text("Started")) {
                     HStack{
-                        DatePicker("", selection: $date, in: ...Date.now, displayedComponents: .date)
+                        DatePicker("", selection: $date, in: ...Date.now)
                             .labelsHidden()
                         
-                        DatePicker("Please enter a time", selection: $hour, displayedComponents: .hourAndMinute)
-                            .labelsHidden()
                     }
                 }
                 
@@ -95,6 +93,7 @@ struct AddSessionView: View {
                         }
                         dismiss()
                     }
+                    .disabled(isDurationZero())
                 }
             }
             .onAppear{
@@ -109,15 +108,24 @@ struct AddSessionView: View {
         
     }
     
-    
+    private func isDurationZero() -> Bool {
+        
+        if hours == 0 && minutes == 0 {
+            return true
+        }
+        
+        return false
+    }
+        
     private func saveSession(){
         let newSession = Session(date: date, durationHour: hours, durationMinutes: minutes)
         
         category.sessions.append(newSession)
+        reset()
     }
     
     private func updateSession(session: Session, date: Date?, hours: Int?, minutes: Int?) {
-        
+            
         session.date = date ?? session.date
         session.durationHour = hours ?? session.durationHour
         session.durationMinutes = minutes ?? session.durationMinutes
