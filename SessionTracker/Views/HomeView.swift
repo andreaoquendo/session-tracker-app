@@ -18,6 +18,8 @@ struct HomeView: View {
                 VStack(alignment: .leading){
                     CategoryList()
                 }
+                
+                Spacer()
             }
             .navigationTitle("Activities")
             .toolbar{

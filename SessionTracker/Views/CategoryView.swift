@@ -24,6 +24,7 @@ struct CategoryView: View {
             VStack(spacing: 30){
                 Group{
                     ZStack{
+
                         
                         VStack(alignment: .leading, spacing: 12){
                             Text(category.name)

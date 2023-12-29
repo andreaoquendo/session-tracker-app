@@ -17,14 +17,21 @@ struct CategoryList: View {
     
     var body: some View {
         NavigationStack{
-            List{
-                ForEach(categories){ category in
-                    NavigationLink(destination: CategoryView(category: category)){
-                        Text(category.name)
-                        
+            
+            ScrollView(.horizontal){
+                HStack(spacing: 24){
+                    ForEach(categories){ category in
+                        NavigationLink(destination: CategoryView(category: category)){
+                            CategoryOpenCardView(emoji: category.emoji, name: category.name, quantity: category.sessionCount, totalDuration: category.totalDurationInMinutes, color: category.color)
+                            
+                        }
                     }
                 }
+                .padding(.leading, 24)
+                .padding(.top, 16)
+                .padding(.bottom, 16)
             }
+        
         }
     }
 }
