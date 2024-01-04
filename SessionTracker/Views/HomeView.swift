@@ -27,6 +27,8 @@ struct HomeView: View {
             }
             .navigationTitle("Activities")
             .toolbar{
+                
+                // line.3.horizontal
                 ToolbarItem(placement: .topBarTrailing, content: {
                     Button{
                         addCategorySheet = true
@@ -37,6 +39,14 @@ struct HomeView: View {
                         }
                     }
                     
+                })
+                
+                ToolbarItem(placement: .topBarLeading, content: {
+                    Button{
+                        
+                    } label: {
+                        Image(systemName: "line.3.horizontal")
+                    }
                 })
             }
             .sheet(isPresented: $addCategorySheet){
