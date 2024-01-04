@@ -84,7 +84,11 @@ struct EditCategoryView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
-                        addCategory()
+                        if category != nil {
+                            updateCategory()
+                        } else {
+                            addCategory()
+                        }
                         dismiss()
                     }
                     .disabled(activateSaveButton())
@@ -93,6 +97,7 @@ struct EditCategoryView: View {
             .onAppear{
                 if let category = category {
                     name = category.name
+                    selectedEmoji = category.emoji
                     
                     for tint in tintColors {
                         if tint.value == category.color {
@@ -120,7 +125,7 @@ struct EditCategoryView: View {
     }
     
     
-    func addCategory(){
+    private func addCategory(){
         
         if !name.isEmpty {
             let category = Category(name: name, emoji: selectedEmoji, tintColor: selectedTint ?? tintColors[6])
@@ -128,6 +133,15 @@ struct EditCategoryView: View {
             reset()
         }
         
+    }
+    
+    private func updateCategory() {
+        
+        if let category = category {
+            category.name = name
+            category.emoji = selectedEmoji 
+            category.tintColor = selectedTint?.color ?? tintColors[6].color
+        }
     }
     
     func reset(){

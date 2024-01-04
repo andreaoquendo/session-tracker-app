@@ -126,9 +126,10 @@ struct CategoryView: View {
                                 width: 150
                             )
                             .padding(.vertical, 16)
-                            .overlay{
+                            .background{
                                 RoundedRectangle(cornerRadius: 30)
                                     .stroke(.black, lineWidth: 3)
+                                    .fill(.white)
                             }
                         
                     }
