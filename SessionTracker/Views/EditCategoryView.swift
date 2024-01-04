@@ -13,13 +13,19 @@ struct EditCategoryView: View {
     @Environment(\.modelContext) private var context 
     @Environment(\.dismiss) private var dismiss
     
+    let category: Category?
+    
+    init(category: Category? = nil){
+        self.category = category
+    }
+    
     @State private var name: String = ""
     @State private var description: String = ""
     
     @State var selectedEmoji: String = "Add Icon"
     @State var isPresented: Bool = false
     
-    let colors: [Color] = [Color.orange, Color.red, Color.yellow, Color.green, Color.blue]
+    let colors: [Color] = [Color.orange, Color.red, Color.yellow, Color.green, Color.blue, Color.cyan, Color.gray, Color.black, Color.indigo, Color.brown]
     @State private var selectedTint: TintColor? = nil
     
     var body: some View {
@@ -82,6 +88,18 @@ struct EditCategoryView: View {
                         dismiss()
                     }
                     .disabled(activateSaveButton())
+                }
+            }
+            .onAppear{
+                if let category = category {
+                    name = category.name
+                    
+                    for tint in tintColors {
+                        if tint.value == category.color {
+                            selectedTint = tint
+                            break
+                        }
+                    }
                 }
             }
         }
