@@ -17,6 +17,10 @@ struct HomeView: View {
             VStack{
                 VStack(alignment: .leading){
                     CategoryList()
+                    
+                    
+                    
+                    AllSessionsListView()
                 }
                 
                 Spacer()
@@ -48,4 +52,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .modelContainer(for: [Category.self, Session.self])
 }

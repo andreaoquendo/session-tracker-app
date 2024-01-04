@@ -17,6 +17,8 @@ struct CategoryView: View {
     
     @State private var editSessionSheet: Bool = false
     @State private var selectedSession: Session? = nil
+    
+    @State private var editCategorySheet: Bool = false
 
     
     var body: some View {
@@ -161,7 +163,12 @@ struct CategoryView: View {
 //            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
+                    Button {
+                        editCategorySheet = true
+                    } label: {
+                        Text("Edit")
+                    }
+                    
                 }
             }
             .onChange(of: selectedSession){
@@ -172,6 +179,9 @@ struct CategoryView: View {
             }
             .sheet(isPresented: $editSessionSheet){
                 AddSessionView(category: category, session: selectedSession)
+            }
+            .sheet(isPresented: $editCategorySheet){
+                EditCategoryView(category: category)
             }
             
         }
