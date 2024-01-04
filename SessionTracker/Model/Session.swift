@@ -39,4 +39,5 @@ class Session {
         self.durationMinutes = durationMinutes
     }
     
+    var category: Category?
 }
