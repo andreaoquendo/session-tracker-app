@@ -8,19 +8,26 @@
 import SwiftUI
 import SwiftData
 
+enum CategoryListViewMode {
+    case vertical, horizontal
+}
+
 struct HomeView: View {
     
     @State private var addCategorySheet: Bool = false
+    @State private var categoryListMode: CategoryListViewMode = .horizontal
     
     var body: some View {
         NavigationStack{
             VStack{
                 VStack(alignment: .leading){
-                    CategoryList()
                     
-                    
-                    
-                    AllSessionsListView()
+                    if categoryListMode == .horizontal {
+                        CategoryList()
+                        AllSessionsListView()
+                    } else {
+                        CategoryVerticalListView()
+                    }
                 }
                 
                 Spacer()
@@ -43,9 +50,14 @@ struct HomeView: View {
                 
                 ToolbarItem(placement: .topBarLeading, content: {
                     Button{
-                        
+                        categoryListMode = (categoryListMode == .vertical) ? .horizontal : CategoryListViewMode.vertical
                     } label: {
-                        Image(systemName: "line.3.horizontal")
+                        
+                        if categoryListMode == .horizontal {
+                            Image(systemName: "lineweight")
+                        } else {
+                            Image(systemName: "square.fill.and.line.vertical.and.square.fill")
+                        }
                     }
                 })
             }
