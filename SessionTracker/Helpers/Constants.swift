@@ -8,3 +8,7 @@
 import SwiftUI
 
 let appTint: Color = .blue
+
+let appQuotes: [Quote] = [
+    .init(text: "A person who never made a mistake never tried anything new", author: "Albert Einstein")
+]

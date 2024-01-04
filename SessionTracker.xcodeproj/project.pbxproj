@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A72017452B473B4E00ADB74E /* CategoryListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72017442B473B4E00ADB74E /* CategoryListItemView.swift */; };
 		A72017472B473D3400ADB74E /* CategoryVerticalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72017462B473D3400ADB74E /* CategoryVerticalListView.swift */; };
+		A72017492B47437300ADB74E /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72017482B47437300ADB74E /* TimerView.swift */; };
+		A720174B2B4743F400ADB74E /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A720174A2B4743F400ADB74E /* Quote.swift */; };
 		A72ED76D2B3F164300507246 /* CategoryOpenCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72ED76C2B3F164300507246 /* CategoryOpenCardView.swift */; };
 		A74E534A2B33FC6B00914B63 /* AddSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E53492B33FC6B00914B63 /* AddSessionView.swift */; };
 		A74E534C2B34087200914B63 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E534B2B34087200914B63 /* CategoryView.swift */; };
@@ -32,6 +34,8 @@
 /* Begin PBXFileReference section */
 		A72017442B473B4E00ADB74E /* CategoryListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListItemView.swift; sourceTree = "<group>"; };
 		A72017462B473D3400ADB74E /* CategoryVerticalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVerticalListView.swift; sourceTree = "<group>"; };
+		A72017482B47437300ADB74E /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		A720174A2B4743F400ADB74E /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		A72ED76C2B3F164300507246 /* CategoryOpenCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOpenCardView.swift; sourceTree = "<group>"; };
 		A74E53492B33FC6B00914B63 /* AddSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSessionView.swift; sourceTree = "<group>"; };
 		A74E534B2B34087200914B63 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 				A74E534B2B34087200914B63 /* CategoryView.swift */,
 				A7C74EC12B464ED9002E3655 /* AllSessionsListView.swift */,
 				A72017462B473D3400ADB74E /* CategoryVerticalListView.swift */,
+				A72017482B47437300ADB74E /* TimerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 				A79D4B072B3265060086F0D6 /* Category.swift */,
 				A79D4B092B3265440086F0D6 /* Session.swift */,
 				A76A155C2B33988200E37D54 /* TintColor.swift */,
+				A720174A2B4743F400ADB74E /* Quote.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A72017492B47437300ADB74E /* TimerView.swift in Sources */,
 				A79D4B0A2B3265440086F0D6 /* Session.swift in Sources */,
 				A72017472B473D3400ADB74E /* CategoryVerticalListView.swift in Sources */,
 				A76A15622B33DCDD00E37D54 /* HomeView.swift in Sources */,
@@ -232,6 +239,7 @@
 				A74E534C2B34087200914B63 /* CategoryView.swift in Sources */,
 				A7C74EC42B465558002E3655 /* RecentSessionView.swift in Sources */,
 				A79D4AF92B3264370086F0D6 /* SessionTrackerApp.swift in Sources */,
+				A720174B2B4743F400ADB74E /* Quote.swift in Sources */,
 				A72017452B473B4E00ADB74E /* CategoryListItemView.swift in Sources */,
 				A76A155D2B33988200E37D54 /* TintColor.swift in Sources */,
 				A72ED76D2B3F164300507246 /* CategoryOpenCardView.swift in Sources */,
