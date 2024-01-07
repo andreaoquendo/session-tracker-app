@@ -175,12 +175,15 @@ struct CategoryView: View {
             }
             .sheet(isPresented: $addSessionSheet){
                 AddSessionView(category: category)
+                    .interactiveDismissDisabled()
             }
             .sheet(isPresented: $editSessionSheet){
                 AddSessionView(category: category, session: selectedSession)
+                    .interactiveDismissDisabled()
             }
             .sheet(isPresented: $editCategorySheet){
                 EditCategoryView(category: category)
+                    .interactiveDismissDisabled()
             }
             
         }
