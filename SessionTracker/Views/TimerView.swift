@@ -9,33 +9,44 @@ import SwiftUI
 
 struct TimerView: View {
     
+    let category: Category
+    
+    @Environment(\.dismiss) var dismiss
+    @State private var date: Date = Date.now
     @State private var quote: Quote = appQuotes[0]
-    let color: Color
     
     @State var runningTime = 0
     @State private var isPaused = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
+    @State private var saveSessionSheet = false
+    
     var body: some View {
         NavigationStack{
             VStack(spacing:0){
-                VStack(alignment: .leading){
+                VStack(alignment: .leading, spacing: 16){
                     Text(quote.text)
-                    Text("- \(quote.author)")
+                        .bold()
+                    
+                    Text("— \(quote.author)")
                 }
+                .padding(.horizontal, 16)
                 .frame(maxWidth: .infinity)
                 .frame(height: 250)
-                .background(color.opacity(0.2))
+                .background(category.color.opacity(0.2))
                 
                 Rectangle()
                     .frame(height: 2)
                 
-                VStack{
+                VStack(spacing: 24){
                     
-                    ClockView(runningTime: $runningTime, color: color)
+                    ClockView(runningTime: $runningTime, color: category.color)
                         .padding([.trailing, .bottom], 8)
                     
                     HStack{
+                        
+                        Spacer()
+                        
                         Button{
                             if runningTime > 10 {
                                 runningTime -= 10
@@ -43,30 +54,34 @@ struct TimerView: View {
                                 runningTime = 0
                             }
                         } label: {
-                            TimerButton(color: color, image: "gobackward.minus")
+                            TimerButton(color: category.color, image: "gobackward.minus")
                             
                         }
                         
-                        
+                        Spacer()
                         
                         
                         Button{
                             isPaused.toggle()
                         } label: {
-                            TimerButton(color: color, image:  (isPaused == false) ? "pause.fill" : "play.fill")
+                            TimerButton(color: category.color, image:  (isPaused == false) ? "pause.fill" : "play.fill")
                             
                         }
                         
+                        Spacer()
                     }
                     
                     Button{
-                        
+                        isPaused = true
+                        saveSessionSheet = true
                     } label: {
                         DoneButton()
                     }
                 }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 24)
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
-                .background(color.opacity(0.9))
+                .background(category.color.opacity(0.9))
                     
                 
             }
@@ -75,20 +90,39 @@ struct TimerView: View {
                     runningTime += 1
                 }
             }
-            .navigationTitle("Correr")
+            .actionSheet(isPresented: $saveSessionSheet) {
+                ActionSheet(
+                    title: Text("Save or discard session?"),
+                    buttons: [
+                        .default(Text("Save")){
+                            saveSession()
+                            dismiss()
+                        },
+                        .destructive(Text("Discard")){
+                            dismiss()
+                        },
+                        .cancel(){
+                            isPaused = false
+                        }
+                    ]
+                )
+            }
+            .navigationTitle(category.name)
             .navigationBarTitleDisplayMode(.inline)
-        }
+            .navigationBarBackButtonHidden()
+         }
         
     }
     
     private func DoneButton() -> some View {
         VStack(alignment: .center){
-            Text("Done")
+            Text("Done!")
                 .font(.system(size: 24))
+                .foregroundColor(.black)
                 .bold()
         }
-        .padding(.vertical, 8)
-        .padding(.horizontal, 16)
+        .padding(.vertical, 10)
+        .padding(.horizontal, 24)
         .cornerRadius(10)
         .background(
             RoundedRectangle(cornerRadius: 10)
@@ -96,16 +130,25 @@ struct TimerView: View {
                 .stroke(.black, lineWidth: 3)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(color)
+                        .fill(category.color)
                         .stroke(.black, lineWidth: 3)
-                        .offset(x: 4, y: 4)
+                        .offset(x: 8, y: 8)
                 )
             
         )
-        .padding([.trailing, .bottom], 8)
+        .padding(8)
+    }
+    
+    private func saveSession(){
+        let hours = runningTime / 3600
+        let minutes = (runningTime % 3600) / 60
+        let newSession = Session(date: date, durationHour: hours, durationMinutes: minutes)
+        
+        category.sessions.append(newSession)
+
     }
 }
 
-#Preview {
-    TimerView(color: .red)
-}
+//#Preview {
+////    TimerView(color: .red)
+//}

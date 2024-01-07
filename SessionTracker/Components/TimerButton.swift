@@ -15,8 +15,12 @@ struct TimerButton: View {
     var body: some View {
         
             Image(systemName: image)
+                .frame(
+                    width: 36,
+                    height: 36
+                )
                 .foregroundColor(.black)
-                .font(.system(size: 40))
+                .font(.system(size: 36))
                 .bold()
                 .padding(24)
                 .background(
@@ -30,6 +34,7 @@ struct TimerButton: View {
                                 .offset(x: 8, y: 8)
                         )
                 )
+                .padding(8)
 
     }
 }

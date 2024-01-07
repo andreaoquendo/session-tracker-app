@@ -116,9 +116,7 @@ struct CategoryView: View {
                 Spacer()
                 
                 HStack(spacing: 16){
-                    Button{
-                        addSessionSheet = true
-                    } label : {
+                    NavigationLink(destination: TimerView(category: category)){
                         Text("Start Timer")
                             .foregroundColor(.black)
                             .bold()
@@ -129,7 +127,7 @@ struct CategoryView: View {
                             .background{
                                 RoundedRectangle(cornerRadius: 30)
                                     .stroke(.black, lineWidth: 3)
-                                    .fill(.white)
+                                    
                             }
                         
                     }
@@ -160,7 +158,7 @@ struct CategoryView: View {
             .padding(.leading, 20)
             .padding(.vertical, 36)
             .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Stardew Valley")
+            .navigationTitle(category.name)
 //            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

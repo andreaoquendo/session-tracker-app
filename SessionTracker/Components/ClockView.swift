@@ -15,8 +15,9 @@ struct ClockView: View {
                  
         VStack(alignment: .center){
             Text(clockString())
-                .font(.system(size: 60))
+                .font(.system(size: 48))
                 .bold()
+                .monospaced()
         }
         .padding(.vertical, 16)
         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
