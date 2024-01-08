@@ -20,6 +20,8 @@ struct TimerView: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State private var saveSessionSheet = false
+    @State private var showAlert = false
+    @State private var elapsedTimeHigher = false
     
     var body: some View {
         NavigationStack{
@@ -73,7 +75,13 @@ struct TimerView: View {
                     
                     Button{
                         isPaused = true
-                        saveSessionSheet = true
+                        
+                        if runningTime < 60 {
+                            showAlert = true
+                        } else {
+                            saveSessionSheet = true
+                        }
+                        
                     } label: {
                         DoneButton()
                     }
@@ -88,6 +96,10 @@ struct TimerView: View {
             .onReceive(timer) { _ in
                 if isPaused == false {
                     runningTime += 1
+                }
+                if runningTime > 10 {
+                    isPaused = true
+                    elapsedTimeHigher = true
                 }
             }
             .actionSheet(isPresented: $saveSessionSheet) {
@@ -107,6 +119,30 @@ struct TimerView: View {
                     ]
                 )
             }
+            .alert("Time Warning", isPresented: $showAlert) {
+                Button("OK") {
+                    isPaused = false
+                }
+            } message: {
+                Text("The elapsed time needs to be higher than one minute to save the session.")
+            }
+//            .alert("Time Warning", isPresented: $elapsedTimeHigher) {
+//                Button(role: .cancel){
+//                    dismiss()
+//                } label: {
+//                    Text("Discard")
+//                }
+//    
+//                
+//                Button(role: .none){
+//                    saveSession()
+//                    dismiss()
+//                } label: {
+//                    Text("Save")
+//                }
+//            } message: {
+//                Text("The elapsed cannot be higher than 24 hours, save session?")
+//            }
             .navigationTitle(category.name)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden()

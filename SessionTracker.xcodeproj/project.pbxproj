@@ -29,6 +29,7 @@
 		A79D4B0A2B3265440086F0D6 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D4B092B3265440086F0D6 /* Session.swift */; };
 		A7BDCA042B48A1F800881F7A /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BDCA032B48A1F800881F7A /* ClockView.swift */; };
 		A7BDCA062B48A3DD00881F7A /* TimerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BDCA052B48A3DD00881F7A /* TimerButton.swift */; };
+		A7BDCA082B4B00C800881F7A /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BDCA072B4B00C800881F7A /* SessionView.swift */; };
 		A7C74EC22B464ED9002E3655 /* AllSessionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C74EC12B464ED9002E3655 /* AllSessionsListView.swift */; };
 		A7C74EC42B465558002E3655 /* RecentSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C74EC32B465558002E3655 /* RecentSessionView.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		A79D4B092B3265440086F0D6 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A7BDCA032B48A1F800881F7A /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		A7BDCA052B48A3DD00881F7A /* TimerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerButton.swift; sourceTree = "<group>"; };
+		A7BDCA072B4B00C800881F7A /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		A7C74EC12B464ED9002E3655 /* AllSessionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSessionsListView.swift; sourceTree = "<group>"; };
 		A7C74EC32B465558002E3655 /* RecentSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSessionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +107,7 @@
 				A7C74EC12B464ED9002E3655 /* AllSessionsListView.swift */,
 				A72017462B473D3400ADB74E /* CategoryVerticalListView.swift */,
 				A72017482B47437300ADB74E /* TimerView.swift */,
+				A7BDCA072B4B00C800881F7A /* SessionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				A79D4AFB2B3264370086F0D6 /* ContentView.swift in Sources */,
 				A74E534C2B34087200914B63 /* CategoryView.swift in Sources */,
 				A7C74EC42B465558002E3655 /* RecentSessionView.swift in Sources */,
+				A7BDCA082B4B00C800881F7A /* SessionView.swift in Sources */,
 				A79D4AF92B3264370086F0D6 /* SessionTrackerApp.swift in Sources */,
 				A720174B2B4743F400ADB74E /* Quote.swift in Sources */,
 				A72017452B473B4E00ADB74E /* CategoryListItemView.swift in Sources */,

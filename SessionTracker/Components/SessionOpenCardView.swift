@@ -49,6 +49,7 @@ struct SessionOpenCardView: View {
                         alignment: .trailing
                     )
             }
+            .foregroundColor(.black)
             .padding(16)
             .frame(
                 width: 160,

@@ -96,13 +96,9 @@ struct CategoryView: View {
                 ScrollView(.horizontal){
                     HStack(spacing: 16){
                         ForEach(category.sessions.sorted{ $0.date > $1.date }){ session in
-                            SessionOpenCardView(duration: session.duration, prefix: session.durationPrefix, date: session.date, color: category.color)
-                                .onTapGesture{
-                                    selectedSession = session
-                                    if selectedSession == session {
-                                        editSessionSheet = true
-                                    }
-                                }
+                            NavigationLink(destination: SessionView(session: session)){
+                                SessionOpenCardView(duration: session.duration, prefix: session.durationPrefix, date: session.date, color: category.color)
+                            }
                         }
                     }
                     .padding(.leading, 2)
