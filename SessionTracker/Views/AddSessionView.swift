@@ -13,6 +13,8 @@ struct AddSessionView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
     
+    
+    
     let category: Category
     var session: Session?
     
@@ -75,6 +77,22 @@ struct AddSessionView: View {
                 Section(header: Text("Notes")){
                     TextField("Add notes here...", text: $notes)
                 }
+                
+                if session != nil {
+                    Section(){
+                        VStack(alignment: .center){
+                            Button(role: .destructive){
+                                deleteSession()
+                            } label: {
+                                Text("Delete Session")
+                            }
+                        }.frame(
+                            maxWidth: .infinity,
+                            alignment: .center
+                        )
+                    }
+                }
+                
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle((session != nil) ? "Edit Session" : "Add Session")
@@ -121,7 +139,6 @@ struct AddSessionView: View {
         let newSession = Session(date: date, durationHour: hours, durationMinutes: minutes)
         
         category.sessions.append(newSession)
-        reset()
     }
     
     private func updateSession(session: Session, date: Date?, hours: Int?, minutes: Int?) {
@@ -136,9 +153,13 @@ struct AddSessionView: View {
         notes = ""
         date = Date.now
     }
+    
+    private func deleteSession() {
+        context.delete(session!)
+    }
 }
 
-#Preview {
-    AddSessionView(category: Category(name: "Janeiro", emoji: "🫠", tintColor: tintColors[0]))
-        .modelContainer(for: [Category.self])
-}
+//#Preview {
+//    AddSessionView(category: Category(name: "Janeiro", emoji: "🫠", tintColor: tintColors[0]))
+//        .modelContainer(for: [Category.self])
+//}
