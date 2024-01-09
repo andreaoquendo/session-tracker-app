@@ -22,6 +22,7 @@ struct TimerView: View {
     @State private var saveSessionSheet = false
     @State private var showAlert = false
     @State private var elapsedTimeHigher = false
+    @State private var forceDismiss = false
     
     var body: some View {
         NavigationStack{
@@ -126,23 +127,26 @@ struct TimerView: View {
             } message: {
                 Text("The elapsed time needs to be higher than one minute to save the session.")
             }
-//            .alert("Time Warning", isPresented: $elapsedTimeHigher) {
-//                Button(role: .cancel){
-//                    dismiss()
-//                } label: {
-//                    Text("Discard")
-//                }
-//    
-//                
-//                Button(role: .none){
-//                    saveSession()
-//                    dismiss()
-//                } label: {
-//                    Text("Save")
-//                }
-//            } message: {
-//                Text("The elapsed cannot be higher than 24 hours, save session?")
-//            }
+            .onChange(of: forceDismiss){
+                if forceDismiss == true { dismiss() }
+            }
+            .alert("Time Warning", isPresented: $elapsedTimeHigher) {
+                Button(role: .cancel){
+                    forceDismiss = true
+                } label: {
+                    Text("Discard")
+                }
+    
+                
+                Button(role: .none){
+                    saveSession()
+                    forceDismiss = true
+                } label: {
+                    Text("Save")
+                }
+            } message: {
+                Text("The elapsed cannot be higher than 24 hours, save session?")
+            }
             .navigationTitle(category.name)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden()
