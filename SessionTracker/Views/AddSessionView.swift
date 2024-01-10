@@ -18,6 +18,7 @@ struct AddSessionView: View {
     let category: Category
     var session: Session?
     
+    
     @State private var notes: String = ""
     @State private var date: Date = Date.now
     @State private var hour: Date = Date.now
@@ -82,7 +83,13 @@ struct AddSessionView: View {
                     Section(){
                         VStack(alignment: .center){
                             Button(role: .destructive){
-                                deleteSession()
+                                do {
+                                    deleteSession()
+                                    try context.save()
+                                } catch {
+                                    print("Context saving not handled")
+                                }
+                                dismiss()
                             } label: {
                                 Text("Delete Session")
                             }

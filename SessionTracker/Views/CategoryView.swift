@@ -27,7 +27,6 @@ struct CategoryView: View {
                 Group{
                     ZStack{
 
-                        
                         VStack(alignment: .leading, spacing: 12){
                             Text(category.name)
                                 .font(.title).bold()

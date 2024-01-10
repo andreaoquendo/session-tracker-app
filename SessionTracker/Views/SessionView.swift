@@ -11,9 +11,6 @@ struct SessionView: View {
     
     @Environment(\.dismiss) var dismiss
     @State private var editSessionSheet = false
-    
-    
-    
     let session: Session
     
     var body: some View {
@@ -103,27 +100,22 @@ struct SessionView: View {
                 }
             }
         }
+        .onChange(of: editSessionSheet){
+            print("hey")
+            print(session.category?.name ?? "deu errado")
+        }
+        .onChange(of: session.category){
+            print("ohayou")
+            dismiss()
+        }
         .sheet(isPresented: $editSessionSheet){
-            AddSessionView(category: session.category!, session: session)
-                .interactiveDismissDisabled()
+            if session.category != nil {
+                AddSessionView(category: session.category!, session: session)
+                    .interactiveDismissDisabled()
+            }
         }
     }
     
-    private func mainSufix() {
-        
-    }
-    
-    private func subSufix() {
-        
-    }
-    
-    private func hours() {
-        
-    }
-    
-    private func minutes() {
-        
-    }
     
     private func dateString() -> String{
 
