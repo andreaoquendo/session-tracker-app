@@ -156,6 +156,10 @@ struct EditCategoryView: View {
     
     private func updateCategory() {
         
+        if selectedEmoji.count > 1 {
+            selectedEmoji = "⭐️"
+        }
+        
         if let category = category {
             category.name = name
             category.emoji = selectedEmoji 
