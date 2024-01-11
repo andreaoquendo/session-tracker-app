@@ -11,7 +11,9 @@ import SwiftData
 struct CategoryView: View {
     
     @Environment(\.modelContext) private var context
+    @Environment(\.dismiss) var dismiss
     var category: Category
+    @State var isDelete = false
     
     @State private var addSessionSheet: Bool = false
     
@@ -19,7 +21,7 @@ struct CategoryView: View {
     @State private var selectedSession: Session? = nil
     
     @State private var editCategorySheet: Bool = false
-
+    
     
     var body: some View {
         NavigationStack{
@@ -98,6 +100,7 @@ struct CategoryView: View {
                             NavigationLink(destination: SessionView(session: session)){
                                 SessionOpenCardView(duration: session.duration, prefix: session.durationPrefix, date: session.date, color: category.color)
                             }
+                            
                         }
                     }
                     .padding(.leading, 2)
@@ -165,19 +168,15 @@ struct CategoryView: View {
                     
                 }
             }
-            .onChange(of: selectedSession){
-                editSessionSheet = true
+            .onChange(of: isDelete ){
+                if isDelete == true { dismiss() }
             }
             .sheet(isPresented: $addSessionSheet){
                 AddSessionView(category: category)
                     .interactiveDismissDisabled()
             }
-            .sheet(isPresented: $editSessionSheet){
-                AddSessionView(category: category, session: selectedSession)
-                    .interactiveDismissDisabled()
-            }
             .sheet(isPresented: $editCategorySheet){
-                EditCategoryView(category: category)
+                EditCategoryView(category: category, isDelete: $isDelete)
                     .interactiveDismissDisabled()
             }
             

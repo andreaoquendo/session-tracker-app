@@ -13,10 +13,12 @@ struct EditCategoryView: View {
     @Environment(\.modelContext) private var context 
     @Environment(\.dismiss) private var dismiss
     
-    let category: Category?
+    private let category: Category?
+    @Binding private var isDelete: Bool
     
-    init(category: Category? = nil){
+    init(category: Category? = nil, isDelete: Binding<Bool> = .constant(true)){
         self.category = category
+        self._isDelete = isDelete
     }
     
     @State private var name: String = ""
@@ -70,6 +72,23 @@ struct EditCategoryView: View {
                     Section(header: Text("Description")){
                         TextField("", text: $description)
     
+                    }
+                    
+                    if category != nil {
+                        Section(){
+                            VStack(alignment: .center){
+                                Button(role: .destructive){
+                                    
+                                    deleteCategory()
+                                    dismiss()
+                                } label: {
+                                    Text("Delete Session")
+                                }
+                            }.frame(
+                                maxWidth: .infinity,
+                                alignment: .center
+                            )
+                        }
                     }
                         
                 }
@@ -142,6 +161,18 @@ struct EditCategoryView: View {
             category.emoji = selectedEmoji 
             category.tintColor = selectedTint?.color ?? tintColors[6].color
         }
+    }
+    
+    private func deleteCategory(){
+        do {
+            context.delete(category!)
+            try context.save()
+        }
+        catch {
+            print("nao deu certo")
+        }
+        isDelete = true
+        dismiss()
     }
     
     func reset(){

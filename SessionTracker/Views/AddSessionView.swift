@@ -162,7 +162,15 @@ struct AddSessionView: View {
     }
     
     private func deleteSession() {
-        context.delete(session!)
+        
+        if let session = session {
+            if let index = category.sessions.firstIndex(where: { $0.id == session.id }) {
+                category.sessions.remove(at: index)
+            }
+            context.delete(session)
+        } else {
+            print("ERROR: Session does not exist, therefore there's nothing to delete")
+        }
     }
 }
 

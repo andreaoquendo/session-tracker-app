@@ -17,6 +17,8 @@ struct HomeView: View {
     @State private var addCategorySheet: Bool = false
     @State private var categoryListMode: CategoryListViewMode = .horizontal
     
+    @State private var isDeleted = false
+    
     var body: some View {
         NavigationStack{
             VStack{
