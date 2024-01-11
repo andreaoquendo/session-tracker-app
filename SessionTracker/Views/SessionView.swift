@@ -105,7 +105,6 @@ struct SessionView: View {
             print(session.category?.name ?? "deu errado")
         }
         .onChange(of: session.category){
-            print("ohayou")
             dismiss()
         }
         .sheet(isPresented: $editSessionSheet){
