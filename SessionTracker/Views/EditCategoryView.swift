@@ -82,7 +82,7 @@ struct EditCategoryView: View {
                                     deleteCategory()
                                     dismiss()
                                 } label: {
-                                    Text("Delete Session")
+                                    Text("Delete Activity")
                                 }
                             }.frame(
                                 maxWidth: .infinity,

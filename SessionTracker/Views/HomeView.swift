@@ -19,16 +19,31 @@ struct HomeView: View {
     
     @State private var isDeleted = false
     
+    @Query(sort: [SortDescriptor(\Category.name, order: .reverse)], animation: .snappy)
+    private var categories: [Category]
+    
     var body: some View {
         NavigationStack{
             VStack{
                 VStack(alignment: .leading){
                     
-                    if categoryListMode == .horizontal {
-                        CategoryList()
-                        AllSessionsListView()
+                    if categories.isEmpty {
+                        VStack(alignment: .center) {
+                            Image("categories")
+                                .resizable()
+                                .scaledToFit()
+                            Text("Add your first activity by clicking in the top right button.")
+                                .multilineTextAlignment(.center)
+                            
+                        }
+                        .padding(32)
                     } else {
-                        CategoryVerticalListView()
+                        if categoryListMode == .horizontal {
+                            CategoryList()
+                            AllSessionsListView()
+                        } else {
+                            CategoryVerticalListView()
+                        }
                     }
                 }
                 

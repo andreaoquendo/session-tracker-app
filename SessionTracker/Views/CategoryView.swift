@@ -94,21 +94,31 @@ struct CategoryView: View {
                 }
                 .padding(.trailing, 16)
                 
-                ScrollView(.horizontal){
-                    HStack(spacing: 16){
-                        ForEach(category.sessions.sorted{ $0.date > $1.date }){ session in
-                            NavigationLink(destination: SessionView(session: session)){
-                                SessionOpenCardView(duration: session.duration, prefix: session.durationPrefix, date: session.date, color: category.color)
-                            }
-                            
-                        }
+                if category.sessions.isEmpty {
+                    VStack(alignment: .center){
+                        Image("sessions")
+                            .resizable()
+                            .scaledToFit()
+                        Text("Add your first session")
                     }
-                    .padding(.leading, 2)
-                    .padding(.top, 2)
-                    .padding(.bottom, 16)
-                    
+                    .padding(.horizontal, 36)
+                } else {
+                    ScrollView(.horizontal){
+                        HStack(spacing: 16){
+                            ForEach(category.sessions.sorted{ $0.date > $1.date }){ session in
+                                NavigationLink(destination: SessionView(session: session)){
+                                    SessionOpenCardView(duration: session.duration, prefix: session.durationPrefix, date: session.date, color: category.color)
+                                }
+                                
+                            }
+                        }
+                        .padding(.leading, 2)
+                        .padding(.top, 2)
+                        .padding(.bottom, 16)
+                        
+                    }
+                    .scrollIndicators(.hidden)
                 }
-                .scrollIndicators(.hidden)
             
                 
                 Spacer()
